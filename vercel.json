@@ -1,22 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "cd ../.. && pnpm install && pnpm build",
-  "outputDirectory": "apps/typing-zen-garden/.next",
-  "framework": "nextjs",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/apps/typing-zen-garden/$1"
+      "src": "typing-zen-garden/next.config.js",
+      "use": "@vercel/next"
     }
   ],
-  "env": {
-    "NEXT_PUBLIC_API_BASE_URL": "https://${VERCEL_URL}"
-  },
-  "regions": ["iad1"],
-  "functions": {
-    "apps/typing-zen-garden/api/**/*.ts": {
-      "memory": 1024,
-      "maxDuration": 10
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     }
-  }
+  ]
 }
