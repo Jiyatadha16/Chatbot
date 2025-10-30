@@ -1,0 +1,20 @@
+{
+  "name": "typing-zen-garden-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter typing-zen-garden dev",
+    "build": "pnpm --filter typing-zen-garden build",
+    "start": "pnpm --filter typing-zen-garden start",
+    "lint": "pnpm --filter typing-zen-garden lint"
+  },
+  "dependencies": {
+    "@types/node": "^20.19.24",
+    "@types/react": "^18.3.26",
+    "@types/react-dom": "^18.3.7",
+    "next": "^14.2.33",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.9.3"
+  }
+}
