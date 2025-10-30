@@ -5,19 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aesthetic To-Do App</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+    <div class="music-player">
+        <h3>Music Player</h3>
+        <div class="song-info">
+            <div class="now-playing">
+                <div class="music-icon">🎵</div>
+                <p id="current-song">No song playing</p>
+            </div>
+        </div>
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+        <div class="controls">
+            <button id="prev-btn">⏮</button>
+            <button id="play-pause-btn">⏵</button>
+            <button id="next-btn">⏭</button>
+        </div>
+        <div class="volume-control">
+            <span class="material-icons">volume_up</span>
+            <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+    </div>
     <div class="container">
         <div class="todo-app">
-            <h2>My Tasks</h2>
+            <div class="app-header">
+                <h2>My Tasks</h2>
+                <div class="task-count">
+                    <span id="pending-tasks">0</span> tasks pending
+                </div>
+            </div>
+            <div class="task-input">
+                <input type="text" id="input-box" placeholder="What needs to be done?">
+                <button id="add-task-btn">Add Task</button>
+            </div>
             <ul id="list-container">
             </ul>
         </div>
-        <button id="fab" class="fab">+</button>
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <input type="text" id="input-box" placeholder="What needs to be done?">
-                <button id="add-task-btn">Add Task</button>
+    </div>
+    
+    <!-- Edit Task Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Task</h3>
+            <input type="text" id="edit-input" placeholder="Update task">
+            <div class="modal-buttons">
+                <button id="save-edit-btn">Save</button>
+                <button id="cancel-edit-btn">Cancel</button>
             </div>
         </div>
     </div>

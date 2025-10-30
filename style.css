@@ -1,9 +1,9 @@
 /* 
   Design Intention:
-  This stylesheet aims for a calming, fluid, and visually soft aesthetic.
-  The design uses glassmorphism, pastel gradients, and smooth animations
-  to create a meditative experience, making task management feel like
-  a moment of peace rather than a chore.
+  This stylesheet creates an immersive, modern interface with enhanced
+  visual hierarchy and microinteractions. The design combines 
+  glassmorphism with subtle gradients and dynamic animations for
+  an engaging yet calming task management experience.
 */
 
 * {
@@ -14,13 +14,16 @@
 }
 
 body {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
     animation: gradient-animation 15s ease infinite;
     background-size: 400% 400%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    overflow-x: hidden;
 }
 
 @keyframes gradient-animation {
@@ -31,15 +34,22 @@ body {
 
 .container {
     width: 100%;
-    max-width: 540px;
+    max-width: 600px;
     margin: 20px;
-    padding: 40px 30px 70px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
 }
 
 .todo-app h2 {
@@ -198,19 +208,84 @@ ul li span:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-.music-toggle {
+.music-player {
     position: fixed;
-    bottom: 30px;
     left: 30px;
-    padding: 10px 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    z-index: 1000;
+}
+
+.music-player h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.song-info {
+    text-align: center;
+    margin: 10px 0;
+    min-height: 40px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.controls button {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
-    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.volume-control {
+    width: 100%;
+    padding: 10px 0;
+}
+
+#volume-slider {
+    width: 100%;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.music-toggle:hover {
-    background: rgba(255, 255, 255, 0.4);
+#volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
 }
